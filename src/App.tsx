@@ -1,8 +1,12 @@
+import { RouterProvider } from 'react-router-dom';
+
+import { rootRouter } from './router';
+
 import './theme/styles/globals.scss';
 
 const App = () => {
   return (
-    <div></div>
+    <RouterProvider router={ rootRouter } />
   );
 }
 

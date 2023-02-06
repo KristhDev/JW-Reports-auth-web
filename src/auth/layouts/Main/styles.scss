@@ -1,0 +1,9 @@
+@import '../../../theme/styles/colors.scss';
+
+.container {
+    @include themify($themes) {
+        background-color: themed('background');
+    }
+
+    height: 100vh;
+}
