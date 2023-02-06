@@ -2,8 +2,9 @@
 
 .container {
     @include themify($themes) {
-        background-color: themed('background');
+        background-color: themed('contentHeader');
     }
 
+    padding: 4rem;
     height: 100vh;
 }

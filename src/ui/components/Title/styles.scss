@@ -1,0 +1,17 @@
+@import '../../../theme/styles/colors.scss';
+
+.title {
+    &-container {
+        padding: 1rem;
+        width: 100%;
+    }
+
+    &-text{
+        @include themify($themes) {
+            color: themed('titleText');
+        }
+
+        font-weight: bold;
+        font-size: 3rem;
+    }
+}
