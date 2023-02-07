@@ -28,7 +28,11 @@ export const FormField: FC<FormFieldProps> = ({
                 { icon }
             </div>
 
-            <ErrorMessage name={ rest.name! } component="span" />
+            <ErrorMessage
+                className="form-field__error-message"
+                component="span"
+                name={ rest.name! }
+            />
         </div>
     );
 }

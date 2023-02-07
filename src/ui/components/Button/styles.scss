@@ -1,0 +1,29 @@
+@import '../../../theme/styles/colors.scss';
+
+.button {
+    @include themify($themes) {
+        background-color: themed('button');
+    }
+
+    border-radius: 0.5rem;
+    border: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.7rem 2rem;
+
+    &:active {
+        @include themify($themes) {
+            box-shadow: 0px 0px 10px themed('button');
+        }
+    }
+
+    &:hover {
+        @include themify($themes) {
+            background-color: darken($color: themed('button'), $amount: 5);
+        }
+    }
+
+    @media screen and (max-width: 620px) {
+        font-size: 0.9rem;
+    }
+}
