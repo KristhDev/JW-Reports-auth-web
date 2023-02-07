@@ -6,7 +6,7 @@ import { Theme, } from '../interfaces';
 /* Defining the interface for the context. */
 interface ThemeContextProps {
     theme: Theme;
-    setTheme: (theme: Theme) => void;
+    setTheme: (theme: Theme, storageTheme: Theme) => void;
 }
 
 /* Creating a context with the type of ThemeContextProps. */

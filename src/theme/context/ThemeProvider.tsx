@@ -14,8 +14,8 @@ const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
      * state.
      * @param {Theme} theme - Theme - this is the theme that is being set.
      */
-    const setTheme = (theme: Theme) => {
-        localStorage.setItem('jw-reports-auth-web-theme', theme);
+    const setTheme = (theme: Theme, storageTheme: Theme) => {
+        localStorage.setItem('jw-reports-auth-web-theme', storageTheme);
         setThemeState(theme);
     }
 
@@ -27,11 +27,17 @@ const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
         const defaultTheme = localStorage.getItem('jw-reports-auth-web-theme');
 
         if (defaultTheme) {
-            setTheme(defaultTheme as Theme);
+            if (defaultTheme === 'default') {
+                const isDarkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                setTheme(isDarkTheme ? 'dark' : 'light',  'default');
+            }
+            else {
+                setTheme(defaultTheme as Theme, defaultTheme as Theme);
+            }
         }
         else {
             const isDarkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            setTheme(isDarkTheme ? 'dark' : 'light');
+            setTheme(isDarkTheme ? 'dark' : 'light',  'default');
         }
     }
 
