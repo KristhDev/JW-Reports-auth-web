@@ -1,0 +1,82 @@
+@import '../../../theme/styles/colors.scss';
+
+.form-field {
+    &__container {
+        padding: 1rem;
+        width: 87%;
+
+        @media screen and (max-width: 620px) {
+            padding: 0.5rem;
+        }
+    }
+
+    &__label {
+        @include themify($themes) {
+            color: themed('titleText');
+        }
+
+        display: block;
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+
+        @media screen and (max-width: 620px) {
+            font-size: 1rem;
+        }
+    }
+
+    &__input-container {
+        @include themify($themes) {
+            border: 1px solid themed('icon');
+        }
+
+        align-items: center;
+        border-radius: 0.4rem;
+        display: flex;
+        padding-right: 1rem;
+
+        &__input {
+            @include themify($themes) {
+                color: themed('inputText');
+            }
+
+            background-color: transparent;
+            border: 0;
+            display: flex;
+            flex: 1;
+            font-size: 1rem;
+            outline: none;
+            padding: 0.7rem;
+
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover, 
+            &:-webkit-autofill:focus {
+                @include themify($themes) {
+                    box-shadow: 0 0 0px 1000px themed('headerContent') inset;
+                }
+            }
+
+            &:-webkit-autofill {
+                @include themify($themes) {
+                    -webkit-text-fill-color: themed('inputText') !important;
+                }
+            }
+
+            @media screen and (max-width: 620px) {
+                font-size: 0.9rem;
+            }
+        }
+
+        svg {
+            @include themify($themes) {
+                fill: themed('icon');
+                stroke: themed('icon');
+
+                path {
+                    fill: themed('icon');
+                    stroke: themed('icon');
+                }
+            }
+        }
+    }
+}

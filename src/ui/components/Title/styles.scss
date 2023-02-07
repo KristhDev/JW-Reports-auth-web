@@ -13,5 +13,25 @@
 
         font-weight: bold;
         font-size: 3rem;
+
+        @media screen and (max-width: 1200px) {
+            font-size: 2.5rem;
+        }
+
+        @media screen and (max-width: 960px) {
+            font-size: 2.25rem;
+        }
+
+        @media screen and (max-width: 724px) {
+            font-size: 2rem;
+        }
+
+        @media screen and (max-width: 620px) {
+            font-size: 1.75rem;
+        }
+
+        @media screen and (max-width: 420px) {
+            font-size: 1.5rem;
+        }
     }
 }
