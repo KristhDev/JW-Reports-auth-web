@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import { Form, Formik } from 'formik';
 import { IoKeySharp } from 'react-icons/io5';
 import { object, ref, string } from 'yup';
@@ -7,6 +8,10 @@ import { Button, FormField } from '../../../ui/components';
 import './styles.scss';
 
 export const ResetPasswordForm = () => {
+    const { hash } = useLocation();
+    const queryParameters = new URLSearchParams(hash.split('#')[1]);
+    Array.from(queryParameters.entries()).map(console.log);
+
     const resetPasswordSchema = object().shape({
         password: string()
             .min(6, 'La nueva contraseña debe tener al menos 6 caracteres.')

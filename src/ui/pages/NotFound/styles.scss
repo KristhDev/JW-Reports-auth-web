@@ -1,0 +1,66 @@
+@import '../../../theme/styles/colors.scss';
+
+.center-content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h1 {
+        @include themify($themes) {
+            color: themed('icon');
+        }
+
+        font-size: 7rem;
+        text-align: center;
+
+        @media screen and (max-width: 1024px) {
+            font-size: 6.5rem;
+        }
+
+        @media screen and (max-width: 720px) {
+            font-size: 6rem;
+        }
+
+        @media screen and (max-width: 420px) {
+            font-size: 4rem;
+        }
+    }
+
+    h2, h3 {
+        @include themify($themes) {
+            color: themed('titleText');
+        }
+
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 4rem;
+
+        @media screen and (max-width: 1024px) {
+            font-size: 3.5rem;
+        }
+
+        @media screen and (max-width: 720px) {
+            font-size: 3rem;
+        }
+
+        @media screen and (max-width: 420px) {
+            font-size: 2rem;
+        }
+    }
+
+    h3 {
+        font-size: 2rem;
+
+        @media screen and (max-width: 1024px) {
+            font-size: 1.5rem;
+        }
+
+        @media screen and (max-width: 720px) {
+            font-size: 1rem;
+        }
+    }
+}
