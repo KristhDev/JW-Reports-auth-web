@@ -8,6 +8,7 @@ import './styles.scss';
 export const FormField: FC<FormFieldProps> = ({
     controlClassName,
     controlStyle,
+    errorClasName,
     icon,
     inputClassName,
     inputStyle,
@@ -16,20 +17,31 @@ export const FormField: FC<FormFieldProps> = ({
     labelStyle,
     ...rest
 }) => {
-
     const [ field ] = useField(rest as any);
 
     return (
         <div className="form-field__container">
-            <label className="form-field__label" htmlFor="">{ label }</label>
+            <label
+                className={ `form-field__label ${ labelClassName }` }
+                htmlFor={ rest.name }
+                style={ labelStyle }
+            >
+                { label }
+            </label>
 
             <div className="form-field__input-container">
-                <input className="form-field__input-container__input" { ...field } { ...rest } />
+                <input
+                    className={ `form-field__input-container__input ${ inputClassName }` }
+                    style={ inputStyle }
+                    { ...field }
+                    { ...rest }
+                />
+
                 { icon }
             </div>
 
             <ErrorMessage
-                className="form-field__error-message"
+                className={ `form-field__error-message ${ errorClasName }` }
                 component="span"
                 name={ rest.name! }
             />

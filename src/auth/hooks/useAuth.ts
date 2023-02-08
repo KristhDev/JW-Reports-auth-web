@@ -6,21 +6,21 @@ const useAuth = () => {
 
         if (error) {
             console.error(error);
-            return;
+            return error.message;
         }
 
         const { error: passError } = await supabase.auth.updateUser({ password: newPassword });
 
         if (passError) {
             console.error(passError);
-            return;
+            return passError.message;
         }
 
         const { error: logoutError } = await supabase.auth.signOut();
 
         if (logoutError) {
             console.error(logoutError);
-            return;
+            return logoutError.message;
         }
 
         window.location.reload();

@@ -1,10 +1,9 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Form, Formik } from 'formik';
-import { IoKeySharp } from 'react-icons/io5';
 import { object, ref, string } from 'yup';
 
-import { Button, FormField } from '../../../ui/components';
+import { Button, EyeBtn, FormField } from '../../../ui/components';
 
 import { useAuth } from '../../hooks';
 
@@ -12,6 +11,10 @@ import './styles.scss';
 
 export const ResetPasswordForm = () => {
     const [ refreshToken, setRefreshToken ] = useState<string>('');
+    const [ error, setError ] = useState<string>('');
+
+    const [ showPassword, setShowPassword ] = useState<boolean>(false);
+    const [ showPasswordConfirm, setShowPasswordConfirm ] = useState<boolean>(false);
 
     const { hash } = useLocation();
     const navigate = useNavigate();
@@ -29,6 +32,11 @@ export const ResetPasswordForm = () => {
             .required('La confirmación de la contraseña es requerida.'),
     });
 
+    const handleSubmit = async (password: string) => {
+        const errorMessage = await updatePassword(password, refreshToken!)
+        if (errorMessage) setError(errorMessage);
+    }
+
     useEffect(() => {
         if (queryParameters.get('refresh_token')) {
             setRefreshToken(queryParameters.get('refresh_token')!);
@@ -43,7 +51,7 @@ export const ResetPasswordForm = () => {
                     password: '',
                     confirmPassword: '',
                 }}
-                onSubmit={ ({ password }) => updatePassword(password, refreshToken!) }
+                onSubmit={ ({ password }) => handleSubmit(password) }
                 validateOnMount
                 validationSchema={ resetPasswordSchema }
             >
@@ -52,17 +60,27 @@ export const ResetPasswordForm = () => {
                         <FormField
                             label="Nueva contraseña:"
                             name="password"
-                            type="password"
+                            type={ (showPassword) ? 'text' : 'password' }
                             placeholder="Ingrese su nueva contraseña"
-                            icon={ <IoKeySharp size={ 25 } /> }
+                            icon={
+                                <EyeBtn 
+                                    onToggle={ setShowPassword }
+                                    value={ showPassword }
+                                />
+                            }
                         />
 
                         <FormField
                             label="Confirmar contraseña:"
                             name="confirmPassword"
-                            type="password"
+                            type={ (showPasswordConfirm) ? 'text' : 'password' }
                             placeholder="Confirme su nueva contraseña"
-                            icon={ <IoKeySharp size={ 25 } /> }
+                            icon={
+                                <EyeBtn 
+                                    onToggle={ setShowPasswordConfirm }
+                                    value={ showPasswordConfirm }
+                                />
+                            }
                         />
 
                         <Button
@@ -74,6 +92,10 @@ export const ResetPasswordForm = () => {
                     </Form>
                 ) }
             </Formik>
+
+            { (error.trim().length > 0) && (
+                <p className="form__error">{ error }</p>
+            ) }
         </div>
     );
 }

@@ -1,12 +1,14 @@
 import { RouterProvider } from 'react-router-dom';
 
-import { rootRouter } from './router';
+import { ThemeProvider } from './theme/context';
 
-import './theme/styles/globals.scss';
+import { rootRouter } from './router';
 
 const App = () => {
   return (
-    <RouterProvider router={ rootRouter } />
+    <ThemeProvider>
+      <RouterProvider router={ rootRouter } />
+    </ThemeProvider>
   );
 }
 
