@@ -1,16 +1,24 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { Form, Formik } from 'formik';
 import { IoKeySharp } from 'react-icons/io5';
 import { object, ref, string } from 'yup';
 
 import { Button, FormField } from '../../../ui/components';
 
+import { useAuth } from '../../hooks';
+
 import './styles.scss';
 
 export const ResetPasswordForm = () => {
+    const [ refreshToken, setRefreshToken ] = useState<string>('');
+
     const { hash } = useLocation();
+    const navigate = useNavigate();
+
     const queryParameters = new URLSearchParams(hash.split('#')[1]);
-    Array.from(queryParameters.entries()).map(console.log);
+
+    const { updatePassword } = useAuth();
 
     const resetPasswordSchema = object().shape({
         password: string()
@@ -21,6 +29,13 @@ export const ResetPasswordForm = () => {
             .required('La confirmación de la contraseña es requerida.'),
     });
 
+    useEffect(() => {
+        if (queryParameters.get('refresh_token')) {
+            setRefreshToken(queryParameters.get('refresh_token')!);
+        }
+        else navigate('/not-found');
+    }, []);
+
     return (
         <div className="form">
             <Formik
@@ -28,7 +43,7 @@ export const ResetPasswordForm = () => {
                     password: '',
                     confirmPassword: '',
                 }}
-                onSubmit={ console.log }
+                onSubmit={ ({ password }) => updatePassword(password, refreshToken!) }
                 validateOnMount
                 validationSchema={ resetPasswordSchema }
             >
