@@ -3,12 +3,19 @@ import { useEffect, useState } from 'react';
 import { Form, Formik } from 'formik';
 import { object, ref, string } from 'yup';
 
+/* Components */
 import { Button, EyeBtn, FormField } from '../../../ui/components';
 
+/* Hooks */
 import { useAuth } from '../../hooks';
 
+/* Styles */
 import './styles.scss';
 
+/**
+ * This component is responsible for resetting the
+ * password of a user.
+ */
 export const ResetPasswordForm = () => {
     const [ refreshToken, setRefreshToken ] = useState<string>('');
     const [ error, setError ] = useState<string>('');
@@ -23,6 +30,7 @@ export const ResetPasswordForm = () => {
 
     const { updatePassword } = useAuth();
 
+    /* Schema validation for new password */
     const resetPasswordSchema = object().shape({
         password: string()
             .min(6, 'La nueva contraseña debe tener al menos 6 caracteres.')
@@ -32,11 +40,21 @@ export const ResetPasswordForm = () => {
             .required('La confirmación de la contraseña es requerida.'),
     });
 
+    /**
+     * The function handleSubmit takes a string as an argument and returns a promise that resolves to a
+     * string.
+     * @param {string} password - string - the new password
+     */
     const handleSubmit = async (password: string) => {
         const errorMessage = await updatePassword(password, refreshToken!)
         if (errorMessage) setError(errorMessage);
     }
 
+    /**
+     * Effect to set the refresh token from the URL.
+     * In case the parameter does not come, the user is removed 
+     * from the page.
+     */
     useEffect(() => {
         if (queryParameters.get('refresh_token')) {
             setRefreshToken(queryParameters.get('refresh_token')!);
@@ -57,6 +75,8 @@ export const ResetPasswordForm = () => {
             >
                 { () => (
                     <Form className="form__container">
+
+                        {/* New password field */}
                         <FormField
                             label="Nueva contraseña:"
                             name="password"
@@ -70,6 +90,7 @@ export const ResetPasswordForm = () => {
                             }
                         />
 
+                        {/* Confirm password field */}
                         <FormField
                             label="Confirmar contraseña:"
                             name="confirmPassword"
@@ -83,6 +104,7 @@ export const ResetPasswordForm = () => {
                             }
                         />
 
+                        {/* Submit */}
                         <Button
                             type="submit"
                             style={{ marginTop: '2rem' }}
@@ -93,6 +115,7 @@ export const ResetPasswordForm = () => {
                 ) }
             </Formik>
 
+            {/* Error when submit form */}
             { (error.trim().length > 0) && (
                 <p className="form__error">{ error }</p>
             ) }
