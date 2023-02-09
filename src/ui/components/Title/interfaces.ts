@@ -1,8 +1,9 @@
-import { CSSProperties, HTMLAttributes } from 'react';
+import { CSSProperties } from 'react';
 
+/* Defining the props that the component will receive. */
 export interface TitleProps {
-    classNameContainer?: HTMLAttributes<HTMLDivElement>['className'];
-    classNameText?: HTMLAttributes<HTMLHeadElement>['className'];
+    classNameContainer?: string;
+    classNameText?: string;
     containerStyle?: CSSProperties;
     text: string;
     textStyle?: CSSProperties;

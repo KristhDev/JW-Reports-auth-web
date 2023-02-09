@@ -1,5 +1,9 @@
+/* Styles */
 import './styles.scss';
 
+/**
+ * This page is to inform that the requested page was not found.
+ */
 const NotFound = () => {
     return (
         <div className="container center-content">

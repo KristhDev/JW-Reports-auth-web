@@ -1,5 +1,6 @@
 import { CSSProperties } from 'react';
 
+/* Defining the interface for the props that the Button component will accept. */
 export interface ButtonProps {
     className?: string;
     disabled?: boolean;
