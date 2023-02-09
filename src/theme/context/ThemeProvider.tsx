@@ -3,6 +3,9 @@ import { FC, PropsWithChildren, useEffect, useState } from 'react';
 /* Context */
 import ThemeContext from './ThemeContext';
 
+/* Components */
+import { ThemeBtn } from '../components';
+
 /* Interfaces */
 import { Theme } from '../interfaces';
 
@@ -56,6 +59,8 @@ const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
             }}
         >
             <div className={ `theme-${ theme }` }>
+                <ThemeBtn />
+
                 { children }
             </div>
         </ThemeContext.Provider>

@@ -3,6 +3,7 @@
 .button {
     @include themify($themes) {
         background-color: themed('button');
+        color: themed('contentHeader');
     }
 
     border-radius: 0.5rem;
