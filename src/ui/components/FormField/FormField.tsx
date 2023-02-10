@@ -53,6 +53,7 @@ export const FormField: FC<FormFieldProps> = ({
                 className={ `form-field__label ${ labelClassName }` }
                 htmlFor={ rest.name }
                 style={ labelStyle }
+                data-testid="form-field-label"
             >
                 { label }
             </label>

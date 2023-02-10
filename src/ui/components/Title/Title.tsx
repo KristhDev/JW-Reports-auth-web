@@ -25,6 +25,7 @@ export const Title: FC<TitleProps> = ({ classNameContainer, classNameText, conta
     return (
         <div
             className={ `title-container ${ classNameContainer }` }
+            data-testid="title-container"
             style={ containerStyle }
         >
             <h1

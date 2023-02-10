@@ -22,9 +22,17 @@ export const EyeBtn: FC<EyeBtnProps> = ({ onToggle, value }) => {
             className="eye-btn"
         >
             { (value) ? (
-                <IoEyeOffOutline size={ 25 } className="eye-btn__icon" />
+                <IoEyeOffOutline
+                    className="eye-btn__icon"
+                    data-testid="eye-off-icon"
+                    size={ 25 }
+                />
             ) : (
-                <IoEyeOutline size={ 25 } className="eye-btn__icon" />
+                <IoEyeOutline
+                    className="eye-btn__icon"
+                    data-testid="eye-icon"
+                    size={ 25 }
+                />
             ) }
         </button>
     );

@@ -1,0 +1,16 @@
+// Vitest Snapshot v1
+
+exports[`Test in <Title /> component > should to match the snapshot 1`] = `
+<div>
+  <div
+    class="title-container undefined"
+    data-testid="title-container"
+  >
+    <h1
+      class="title-text undefined"
+    >
+      Test title
+    </h1>
+  </div>
+</div>
+`;
