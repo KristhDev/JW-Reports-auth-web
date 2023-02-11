@@ -66,17 +66,12 @@
                 font-size: 0.9rem;
             }
         }
+    }
 
-        svg {
-            @include themify($themes) {
-                fill: themed('icon');
-                stroke: themed('icon');
-
-                path {
-                    fill: themed('icon');
-                    stroke: themed('icon');
-                }
-            }
-        }
+    &__error-message {
+        color: red;
+        display: block;
+        padding: 0.5rem;
+        font-size: 0.95rem;
     }
 }

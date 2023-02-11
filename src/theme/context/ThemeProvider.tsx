@@ -3,6 +3,9 @@ import { FC, PropsWithChildren, useEffect, useState } from 'react';
 /* Context */
 import ThemeContext from './ThemeContext';
 
+/* Components */
+import { ThemeBtn } from '../components';
+
 /* Interfaces */
 import { Theme } from '../interfaces';
 
@@ -10,9 +13,9 @@ const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
     const [ theme, setThemeState ] = useState<Theme>('default');
 
     /**
-     * SetTheme is a function that takes a theme and sets the theme in local storage and sets the theme
-     * state.
-     * @param {Theme} theme - Theme - this is the theme that is being set.
+     * SetTheme is a function that takes two arguments, theme and storageTheme, and returns nothing.
+     * @param {Theme} theme - Theme - This is the theme that is passed in from the component.
+     * @param {Theme} storageTheme - The theme that will be stored in localStorage.
      */
     const setTheme = (theme: Theme, storageTheme: Theme) => {
         localStorage.setItem('jw-reports-auth-web-theme', storageTheme);
@@ -20,8 +23,8 @@ const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
     }
 
     /**
-     * If there is a default theme in local storage, set the theme to that, otherwise set the theme to
-     * dark if the user prefers dark mode, otherwise set the theme to light.
+     * If the default theme is set to 'default', then set the theme to the user's preferred color
+     * scheme. Otherwise, set the theme to the default theme.
      */
     const setDefaultTheme = () => {
         const defaultTheme = localStorage.getItem('jw-reports-auth-web-theme');
@@ -41,6 +44,9 @@ const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
         }
     }
 
+    /** 
+     * Effect to load default theme.
+     */
     useEffect(() => {
         setDefaultTheme();
     }, []);
@@ -53,6 +59,8 @@ const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
             }}
         >
             <div className={ `theme-${ theme }` }>
+                <ThemeBtn />
+
                 { children }
             </div>
         </ThemeContext.Provider>

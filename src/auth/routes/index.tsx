@@ -1,18 +1,16 @@
-import { Navigate, RouteObject } from 'react-router-dom';
+import { RouteObject } from 'react-router-dom';
 
-import { ResetPassword } from '../pages';
+/* Pages */
+import { Confirm, ResetPassword } from '../pages';
 
+/* Creating a route object. */
 export const routes: RouteObject[] = [
     {
         path: '',
-        element: <ResetPassword />
+        element: <Confirm />
     },
     {
         path: 'reset-password',
         element: <ResetPassword />
-    },
-    {
-        path: '*',
-        element: <Navigate to="/reset-password" />
     }
 ];

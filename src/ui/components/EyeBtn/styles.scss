@@ -1,0 +1,16 @@
+@import '../../../theme/styles/globals.scss';
+
+.eye-btn {
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    display: flex;
+    justify-content: center;
+
+    &__icon {
+        @include themify($themes) {
+            fill: themed('icon');
+            stroke: themed('icon');
+        }
+    }
+}

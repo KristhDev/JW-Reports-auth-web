@@ -1,3 +1,6 @@
+/* It's a map of maps. The outer map has three keys: light, dark, and default. Each of those keys has a
+map as its value. The inner maps have keys like background, bottom, button, etc. and each of those
+keys has a color as its value. */
 $themes: (
     light: (
         background: #F1F1F1,
@@ -63,6 +66,17 @@ $themes: (
     )
 );
 
+/* It's a mixin that takes a map as an argument. It loops through the map and creates a new map for
+each key in the map. It then loops through the new map and creates a new map for each key in the new
+map. It then loops through the new map and creates a new map for each key in the new map. It then
+loops through the new map and creates a new map for each key in the new map. It then loops through
+the new map and creates a new map for each key in the new map. It then loops through the new map and
+creates a new map for each key in the new map. It then loops through the new map and creates a new
+map for each key in the new map. It then loops through the new map and creates a new map for each
+key in the new map. It then loops through the new map and creates a new map for each key in the new
+map. It then loops through the new map and creates a new map for each key in the new map. It then
+loops through the new map and creates a new map for each key in the new map. It then loops through
+the new map and creates a */
 @mixin themify($themes) {
     @each $theme, $map in $themes {
         .theme-#{$theme} & {
@@ -84,6 +98,7 @@ $themes: (
     }
 }
 
+/* It's a function that takes a key as an argument. It returns the value of the key in the map. */
 @function themed($key) {
     @return map-get($theme-map, $key);
 }
