@@ -1,0 +1,27 @@
+// Vitest Snapshot v1
+
+exports[`Test in <Confirm /> page > should to match the snapshot 1`] = `
+<div>
+  <div
+    class="container"
+  >
+    <div
+      class="title-container undefined"
+      data-testid="title-container"
+    >
+      <h1
+        class="title-text undefined"
+      >
+        Confirmación exitosa
+      </h1>
+    </div>
+    <div
+      class="content"
+    >
+      <h2>
+        Test message
+      </h2>
+    </div>
+  </div>
+</div>
+`;

@@ -74,7 +74,10 @@ export const ResetPasswordForm = () => {
                 validationSchema={ resetPasswordSchema }
             >
                 { () => (
-                    <Form className="form__container">
+                    <Form
+                        className="form__container"
+                        data-testid="form"
+                    >
 
                         {/* New password field */}
                         <FormField
