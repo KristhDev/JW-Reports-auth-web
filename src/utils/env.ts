@@ -1,11 +1,10 @@
 /**
- * It returns an object with all the properties of the `import.meta.env` object
- * @returns The object that is being returned is the object that is being returned by the function.
+ * If the process object exists, return a copy of the process.env object, otherwise return a copy of
+ * the import.meta.env object
+ * @returns The object returned is a copy of the environment variables.
  */
 export const getEnv = () => {
-    import.meta.env;
-
-    return {
-        ...import.meta.env
-    }
+    return (typeof process !== 'undefined')
+        ? { ...process.env }
+        : { ...import.meta.env }
 }
