@@ -103,7 +103,7 @@ git clone https://github.com/KristhDev/JW-Reports-auth-web.git
 ```
 
 ### 3.2) Variables de entorno
-En el repositorio está un **archivo de ejemplo de variables de entorno** `example.env`. Copia ese archivo y renombralo
+En el repositorio está un **archivo de ejemplo de variables de entorno** `.env.example`. Copia ese archivo y renombralo
 cómo `.env`. Luego **reemplaza los valores por los que da Supabase.** Recuerda que para ello ya **debes tener una cuenta**
 en Supabase y haber **creado un proyecto.**
 
