@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, createMemoryRouter } from 'react-router-dom';
 
 /* Routes */
 import { routes as authRoutes } from '../auth/routes';
@@ -21,3 +21,29 @@ export const rootRouter = createBrowserRouter([
         element: <NotFound />
     }
 ]);
+
+export const rootConfirmRouter = createMemoryRouter([
+    {
+        path: '',
+        children: authRoutes
+    },
+    {
+        path: '*',
+        element: <NotFound />
+    }
+], {
+    initialEntries: [ '#message=Message+test' ]
+});
+
+export const rootResetPasswordRouter = createMemoryRouter([
+    {
+        path: '',
+        children: authRoutes
+    },
+    {
+        path: '*',
+        element: <NotFound />
+    }
+], {
+    initialEntries: [ '/reset-password#refresh_token=token_for_refresh_password' ]
+});
