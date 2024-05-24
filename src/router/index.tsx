@@ -1,10 +1,10 @@
 import { createBrowserRouter, createMemoryRouter } from 'react-router-dom';
 
 /* Routes */
-import { routes as authRoutes } from '../auth/routes';
+import { routes as authRoutes } from '../modules/auth';
 
 /* Pages */
-import { NotFound } from '../ui/pages';
+import { NotFound } from '../modules/ui';
 
 /** 
  * Creating a router with two routes. The first route is the root route, which
@@ -21,29 +21,3 @@ export const rootRouter = createBrowserRouter([
         element: <NotFound />
     }
 ]);
-
-export const rootConfirmRouter = createMemoryRouter([
-    {
-        path: '',
-        children: authRoutes
-    },
-    {
-        path: '*',
-        element: <NotFound />
-    }
-], {
-    initialEntries: [ '#message=Message+test' ]
-});
-
-export const rootResetPasswordRouter = createMemoryRouter([
-    {
-        path: '',
-        children: authRoutes
-    },
-    {
-        path: '*',
-        element: <NotFound />
-    }
-], {
-    initialEntries: [ '/reset-password#refresh_token=token_for_refresh_password' ]
-});
