@@ -1,10 +1,10 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, createMemoryRouter } from 'react-router-dom';
 
 /* Routes */
-import { routes as authRoutes } from '../auth/routes';
+import { routes as authRoutes } from '../modules/auth';
 
 /* Pages */
-import { NotFound } from '../ui/pages';
+import { NotFound } from '../modules/ui';
 
 /** 
  * Creating a router with two routes. The first route is the root route, which
