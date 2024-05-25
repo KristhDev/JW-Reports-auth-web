@@ -7,7 +7,7 @@ export default mergeConfig(vitestConfig, defineConfig({
         coverage: {
             provider: 'v8',
             reporter: [ 'text', 'json', 'html' ],
-            reportsDirectory: './tests/coverage',
+            reportsDirectory: './tests/coverage'
         },
         environment: 'jsdom',
         exclude: [

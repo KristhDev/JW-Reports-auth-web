@@ -48,6 +48,8 @@ describe('Test in <FormField /> component', () => {
     });
 
     it('should change value of input', async () => {
+        renderComponent();
+
         const input = screen.getByRole<HTMLInputElement>('textbox');
         await userEvent.type(input, 'Test Name');
 
