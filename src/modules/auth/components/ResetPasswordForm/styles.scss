@@ -2,32 +2,32 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    margin-top: 4rem;
+    margin-top: 3rem;
 
-    @media screen and (max-width: 1200px) {
-        margin-top: 3rem;
+    @media screen and (min-width: 1200px) {
+        margin-top: 4rem;
     }
 
     &__container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: calc(100% / 3);
+        width: 100%;
 
-        @media screen and (max-width: 1200px) {
-            width: calc(100% / 2);
-        }
-
-        @media screen and (max-width: 960px) {
-            width: calc(100% / 1.5);
-        }
-
-        @media screen and (max-width: 724px) {
+        @media screen and (min-width: 620px) {
             width: calc(100% / 1.2);
         }
 
-        @media screen and (max-width: 620px) {
-            width: 100%;
+        @media screen and (min-width: 724px) {
+            width: calc(100% / 1.5);
+        }
+
+        @media screen and (min-width: 960px) {
+            width: calc(100% / 2);
+        }
+
+        @media screen and (min-width: 1200px) {
+            width: calc(100% / 3);
         }
     }
 
@@ -35,10 +35,10 @@
         color: red;
         text-align: center;
         font-size: 1rem;
-        padding: 4rem 0;
+        padding: 3rem 0;
 
-        @media screen and (max-width: 620px) {
-            padding: 3rem 0;
+        @media screen and (min-width: 620px) {
+            padding: 4rem 0;
         }
     }
 }

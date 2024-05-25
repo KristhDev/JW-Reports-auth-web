@@ -66,8 +66,9 @@ export const ResetPasswordForm = (): JSX.Element => {
                 validateOnMount
                 validationSchema={ resetPasswordSchema }
             >
-                { () => (
+                { ({ isSubmitting }) => (
                     <Form
+                        autoComplete="off"
                         className="form__container"
                         data-testid="form"
                     >
@@ -102,8 +103,10 @@ export const ResetPasswordForm = (): JSX.Element => {
 
                         {/* Submit */}
                         <Button
-                            type="submit"
+                            disabled={ isSubmitting }
+                            loading={ isSubmitting }
                             style={{ marginTop: '2rem' }}
+                            type="submit"
                         >
                             Restablecer
                         </Button>

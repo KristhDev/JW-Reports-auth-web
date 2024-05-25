@@ -2,12 +2,8 @@
 
 .form-field {
     &__container {
-        padding: 1rem;
-        width: 87%;
-
-        @media screen and (max-width: 620px) {
-            padding: 0.5rem;
-        }
+        margin-bottom: 1rem;
+        width: 100%;
     }
 
     &__label {
@@ -16,23 +12,36 @@
         }
 
         display: block;
-        font-size: 1.3rem;
+        font-size: 1rem;
         margin-bottom: 0.5rem;
         padding: 0.5rem;
 
-        @media screen and (max-width: 620px) {
-            font-size: 1rem;
+        @media screen and (min-width: 620px) {
+            font-size: 1.3rem;
+        }
+    }
+
+    &__input-border {
+        border: 2px solid transparent;
+        border-radius: 0.5rem;
+
+        &:has(input:focus) {
+            @include themify($themes) {
+                box-shadow: 0px 0px 10px themed('focus');
+                border: 2px solid themed('focus');
+            }
         }
     }
 
     &__input-container {
         @include themify($themes) {
-            border: 1px solid themed('icon');
+            border: 1.5px solid themed('icon');
         }
 
         align-items: center;
         border-radius: 0.4rem;
         display: flex;
+        font-size: 0.9rem;
         padding-right: 1rem;
 
         &__input {
@@ -62,8 +71,8 @@
                 }
             }
 
-            @media screen and (max-width: 620px) {
-                font-size: 0.9rem;
+            @media screen and (min-width: 620px) {
+                font-size: 1rem;
             }
         }
     }

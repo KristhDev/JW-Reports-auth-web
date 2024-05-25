@@ -1,5 +1,8 @@
 import { FC, PropsWithChildren } from 'react';
 
+/* Components */
+import { Spinner } from '../Spinner';
+
 /* Interfaces */
 import { ButtonProps } from './interfaces';
 
@@ -22,6 +25,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
     children,
     className,
     disabled,
+    loading,
     onClick,
     style,
     type
@@ -35,6 +39,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
             type={ type }
         >
             { children }
+            { (loading) && <Spinner style={{ marginLeft: '1rem' }} /> }
         </button>
     );
 }

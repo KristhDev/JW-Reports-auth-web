@@ -51,17 +51,19 @@ export const FormField: FC<FormFieldProps> = ({
             </label>
 
             {/* Input container of field */}
-            <div className="form-field__input-container">
+            <div className="form-field__input-border">
+                <div className="form-field__input-container">
 
-                {/* Input of field */}
-                <input
-                    className={ `form-field__input-container__input ${ inputClassName }` }
-                    style={ inputStyle }
-                    { ...field }
-                    { ...rest }
-                />
+                    {/* Input of field */}
+                    <input
+                        className={ `form-field__input-container__input ${ inputClassName }` }
+                        style={ inputStyle }
+                        { ...field }
+                        { ...rest }
+                    />
 
-                { icon }
+                    { icon }
+                </div>
             </div>
 
             {/* Error field */}

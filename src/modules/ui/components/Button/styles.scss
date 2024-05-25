@@ -6,10 +6,13 @@
         color: themed('contentHeader');
     }
 
+    align-items: center;
     border-radius: 0.5rem;
     border: 0;
+    display: flex;
     font-size: 1rem;
     font-weight: bold;
+    justify-content: center;
     padding: 0.7rem 2rem;
 
     &:active {

@@ -13,30 +13,26 @@
         background-color: themed('contentHeader');
     }
 
-    padding: 4rem;
-    height: 100vh;
+    padding: 1.5rem;
+    height: 100svh;
 
-    @media screen and (max-width: 1200px) {
-        padding: 3.5rem;
-    }
-
-    @media screen and (max-width: 960px) {
-        padding: 3rem;
-    }
-
-    @media screen and (max-width: 724px) {
-        padding: 2.5rem;
-    }
-
-    @media screen and (max-width: 620px) {
+    @media screen and (min-width: 520px) {
         padding: 2rem;
     }
 
-    @media screen and (max-width: 520px) {
-        padding: 1rem;
+    @media screen and (min-width: 620px) {
+        padding: 2.5rem;
     }
 
-    @media screen and (max-width: 420px) {
-        padding: 0.5rem;
+    @media screen and (min-width: 724px) {
+        padding: 3rem;
+    }
+
+    @media screen and (min-width: 960px) {
+        padding: 3.5rem;
+    }
+
+    @media screen and (min-width: 1200px) {
+        padding: 4rem;
     }
 }
