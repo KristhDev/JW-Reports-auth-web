@@ -1,7 +1,7 @@
 import { RouterProvider } from 'react-router-dom';
 
 /* Context */
-import { ThemeProvider } from './theme/context';
+import { ThemeProvider } from './modules/theme';
 
 /* Routes */
 import { rootRouter } from './router';

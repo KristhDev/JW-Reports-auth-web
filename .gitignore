@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Env
+.env
+
+# Test
+coverage/
+__snapshots__/

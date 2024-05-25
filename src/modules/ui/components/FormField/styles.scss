@@ -1,0 +1,86 @@
+@import '../../../theme/styles/colors.scss';
+
+.form-field {
+    &__container {
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+
+    &__label {
+        @include themify($themes) {
+            color: themed('titleText');
+        }
+
+        display: block;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+
+        @media screen and (min-width: 620px) {
+            font-size: 1.3rem;
+        }
+    }
+
+    &__input-border {
+        border: 2px solid transparent;
+        border-radius: 0.5rem;
+
+        &:has(input:focus) {
+            @include themify($themes) {
+                box-shadow: 0px 0px 10px themed('focus');
+                border: 2px solid themed('focus');
+            }
+        }
+    }
+
+    &__input-container {
+        @include themify($themes) {
+            border: 1.5px solid themed('icon');
+        }
+
+        align-items: center;
+        border-radius: 0.4rem;
+        display: flex;
+        font-size: 0.9rem;
+        padding-right: 1rem;
+
+        &__input {
+            @include themify($themes) {
+                color: themed('inputText');
+            }
+
+            background-color: transparent;
+            border: 0;
+            display: flex;
+            flex: 1;
+            font-size: 1rem;
+            outline: none;
+            padding: 0.7rem;
+
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover, 
+            &:-webkit-autofill:focus {
+                @include themify($themes) {
+                    box-shadow: 0 0 0px 1000px themed('headerContent') inset;
+                }
+            }
+
+            &:-webkit-autofill {
+                @include themify($themes) {
+                    -webkit-text-fill-color: themed('inputText') !important;
+                }
+            }
+
+            @media screen and (min-width: 620px) {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    &__error-message {
+        color: red;
+        display: block;
+        padding: 0.5rem;
+        font-size: 0.95rem;
+    }
+}
